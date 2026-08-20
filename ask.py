@@ -1,3 +1,6 @@
+
+import re
+
 import chromadb
 from chromadb.utils import embedding_functions
 from openai import OpenAI
@@ -13,11 +16,34 @@ embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
     model_name="all-MiniLM-L6-v2"
 )
 
+WORK_ORDER_ID_PATTERN = re.compile(r"\bWO-\d+\b", re.IGNORECASE)
+
 
 def search_collection(name, query, n=3):
     col = chroma_client.get_collection(name, embedding_function=embedding_fn)
-    results = col.query(query_texts=[query], n_results=n)
-    return "\n\n".join(results["documents"][0])
+
+    # Hybrid retrieval: if the query names a specific work order ID, fetch
+    # that record directly via an exact metadata match first. Pure semantic
+    # search alone is unreliable for exact identifiers — general-purpose
+    # sentence embeddings are trained on meaning, not on treating an
+    # alphanumeric ID as a special exact-match token, so a record can easily
+    # get outranked by others that are more "semantically similar" in
+    # phrasing even when they're the wrong record entirely.
+    exact_matches = []
+    if name == "work_orders":
+        match = WORK_ORDER_ID_PATTERN.search(query)
+        if match:
+            wo_id = match.group(0).upper()
+            exact = col.get(where={"work_order_id": wo_id})
+            exact_matches = exact["documents"]
+
+    semantic_results = col.query(query_texts=[query], n_results=n)
+    semantic_docs = semantic_results["documents"][0]
+
+    # Merge, exact match(es) first, without duplicating a doc that both
+    # methods happened to return.
+    combined = exact_matches + [d for d in semantic_docs if d not in exact_matches]
+    return "\n\n".join(combined)
 
 def ask(query, source):
     # Step 1: Retrieve context based on source choice
