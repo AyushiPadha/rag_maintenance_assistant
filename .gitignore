@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets
+.env
+
+# Vector database — regenerable via ingest.py / ingest_manual.py, and
+# binary index files don't belong in git history
+chroma_db/
+
+# Manuals folder — contains third-party copyrighted PDF content, not
+# ours to redistribute. See README for how to add your own manual locally.
+manuals/*.pdf

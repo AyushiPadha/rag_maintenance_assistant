@@ -1,0 +1,73 @@
+[
+  {
+    "work_order_id": "WO-1001",
+    "title": "Pump Replacement - Unit A",
+    "status": "Completed",
+    "created_at": "2024-01-10",
+    "assigned_to": "John Doe",
+    "priority": "High",
+    "history": [
+      {"date": "2024-01-10", "action": "Work order created", "by": "Manager"},
+      {"date": "2024-01-12", "action": "Assigned to John Doe", "by": "Manager"},
+      {"date": "2024-01-15", "action": "Spare parts ordered", "by": "John Doe"},
+      {"date": "2024-01-18", "action": "Parts received, work started", "by": "John Doe"},
+      {"date": "2024-01-20", "action": "Pump replaced successfully", "by": "John Doe"},
+      {"date": "2024-01-20", "action": "Work order closed", "by": "Manager"}
+    ]
+  },
+  {
+    "work_order_id": "WO-1002",
+    "title": "Electrical Fault - Building B",
+    "status": "In Progress",
+    "created_at": "2024-02-01",
+    "assigned_to": "Jane Smith",
+    "priority": "Critical",
+    "history": [
+      {"date": "2024-02-01", "action": "Fault reported by security", "by": "Security Team"},
+      {"date": "2024-02-02", "action": "Work order created", "by": "Supervisor"},
+      {"date": "2024-02-03", "action": "Assigned to Jane Smith", "by": "Supervisor"},
+      {"date": "2024-02-05", "action": "Initial inspection done", "by": "Jane Smith"},
+      {"date": "2024-02-07", "action": "Waiting for electrician approval", "by": "Jane Smith"}
+    ]
+  },
+  {
+    "work_order_id": "WO-1003",
+    "title": "HVAC Maintenance - Floor 3",
+    "status": "Pending",
+    "created_at": "2024-03-01",
+    "assigned_to": "Unassigned",
+    "priority": "Medium",
+    "history": [
+      {"date": "2024-03-01", "action": "Scheduled maintenance created", "by": "System"},
+      {"date": "2024-03-02", "action": "Waiting for technician assignment", "by": "Manager"}
+    ]
+  },
+  {
+    "work_order_id": "WO-1004",
+    "title": "Water Leak - Basement",
+    "status": "Completed",
+    "created_at": "2024-03-10",
+    "assigned_to": "Sam",
+    "priority": "Critical",
+    "history": [
+      {"date": "2024-03-10", "action": "Leak reported by staff", "by": "Staff"},
+      {"date": "2024-03-10", "action": "Emergency work order created", "by": "Supervisor"},
+      {"date": "2024-03-11", "action": "Assigned to Sam", "by": "Supervisor"},
+      {"date": "2024-03-12", "action": "Leak fixed and area dried", "by": "Sam"},
+      {"date": "2024-03-13", "action": "Work order closed", "by": "Supervisor"}
+    ]
+  },
+  {
+    "work_order_id": "WO-1005",
+    "title": "Generator Inspection - Block C",
+    "status": "In Progress",
+    "created_at": "2024-04-01",
+    "assigned_to": "Nick Sharma",
+    "priority": "Medium",
+    "history": [
+      {"date": "2024-04-01", "action": "Routine inspection scheduled", "by": "System"},
+      {"date": "2024-04-02", "action": "Assigned to Nick Sharma", "by": "Manager"},
+      {"date": "2024-04-05", "action": "Inspection startel̥d", "by": "Nick Sharma"}
+    ]
+  }
+]
