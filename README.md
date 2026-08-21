@@ -3,7 +3,9 @@
 A Retrieval-Augmented Generation (RAG) system that answers natural-language questions about equipment work orders and service manuals, grounding every answer in retrieved source documents rather than the LLM's own (unverifiable) knowledge.
 
 Built as a maintenance assistant for a Carrier X4 7300/7500 trailer refrigeration unit, but the pipeline generalizes to any combination of structured records (JSON/database) + unstructured documents (PDF manuals).
-![Demo](demo.gif)
+
+![Demo](screenshots/demo.gif) 
+
 ## Why RAG, not just a raw LLM prompt?
 
 A general-purpose LLM has no idea what's inside *your* specific equipment's 342-page service manual, and it can't see your work order history at all. Two options exist to fix that:
